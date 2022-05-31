@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <style>
+    #theme{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgb(11, 12, 11);
+        color: #fff;
+        cursor: pointer;
+    }
+    #flat{
+        font-size: 20px;
+    }
+    .dark{
+        background:black;
+        color:#fff;
+    }
+</style>
+</head>
+<body id="body" class="">
+
+    <div id="theme">
+        <i class="fi fi-ss-moon" id="flat" onclick="theme()"></i>
+        
+    </div>
+    
+    <form action="index.php" method="post"style="display:flex;flex-direction:column;align-items:center;""> 
+    <fieldset style="display:flex;flex-direction:column;align-items:center;width:50vw">
+        <legend>Address</legend>
+        <h1>Residential Address</h1> 
+        <input type="text" placeholder="Enter Name" id="nm1"><br><br>
+        <input type="number" placeholder="Pin" id="pn1"><br><br>
+        <textarea name="textarea" id="ta1" cols="30" rows="10"></textarea><br><br>
+        <div style="display:flex;align-items:center;justify-content: center;width:50vw">
+        <input type="checkbox" id="ckbx" onclick="check()"><h2>Same As Above</h2></div> <br><br>
+        <h1>Present Addrress</h1>
+        
+        <input type="text" placeholder="Enter Name" id="nm2"><br><br>
+        <input type="number" placeholder="Pin" id="pn2"><br><br>
+        <textarea name="textarea2" id="ta2" cols="30" rows="10"></textarea><br><br>
+
+        <input type="submit" name="btn" id="btn">
+    </fieldset>
+    </form>
+
+    <script>
+        function check(){
+            
+        var name=document.getElementById("nm1");
+        var pin=document.getElementById("pn1");
+        var textarea=document.getElementById("ta1");
+
+        var name2=document.getElementById("nm2");
+        var pin2=document.getElementById("pn2");
+        var textarea2=document.getElementById("ta2");
+
+        var chkbx=document.getElementById("ckbx");
+
+        if(chkbx.checked==true){
+            name2.value=name.value;
+            pin2.value=pin.value;
+            textarea2.value=textarea.value;
+        }
+    }
+
+    function theme(){
+        var theme=document.getElementById("body");
+        var day=document.getElementById("theme");
+        var isSunOrMoon=theme.classList.toggle('dark');
+        var icon=document.getElementById("flat");
+        day.style.border="1px solid white";
+        icon.classList.toggle('fi-ss-moon');
+        icon.classList.toggle('fi-rr-sun');
+
+    }
+    </script>
+
+</body>
+</html>
